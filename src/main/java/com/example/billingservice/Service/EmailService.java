@@ -1,7 +1,7 @@
 package com.example.billingservice.Service;
 
-import com.billingService.billingService.Entity.Payment;
-import com.billingService.billingService.Repository.PaymentHistoryRepository;
+import com.example.billingservice.Entity.Payment;
+import com.example.billingservice.Repository.PaymentHistoryRepository;
 import jakarta.mail.internet.MimeMessage;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -52,10 +52,12 @@ public class EmailService {
             document.addPage(page);
 
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 20);
             contentStream.beginText();
-            contentStream.newLineAtOffset(100, 700);
-            contentStream.showText("Monthly Statement for User ID: " + userId);
+            contentStream.newLineAtOffset(50, 700);
+
+            contentStream.showText("Monthly Statement                                             Sri Care");
+            contentStream.newLineAtOffset(0, -100);
 
             List<Payment> paymentHistory = paymentHistoryRepository.findByUserId(userId);
 
@@ -67,10 +69,11 @@ public class EmailService {
             }
 
             for(Payment payment : paymentHistory) {
+                contentStream.setFont(PDType1Font.HELVETICA, 10);
                 contentStream.newLineAtOffset(0, -20);
-                contentStream.showText("Amount: " + payment.getAmount());
-                contentStream.newLineAtOffset(0, -20);
-                contentStream.showText("Date: " + payment.getDate());
+                contentStream.showText("Amount: " + payment.getAmount() + "                                                                                                                                       " + payment.getDate());
+//                contentStream.newLineAtOffset(0, -20);
+//                contentStream.showText("Date: " + payment.getDate());
             }
 
             contentStream.endText();

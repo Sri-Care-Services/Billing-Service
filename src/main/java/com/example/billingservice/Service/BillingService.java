@@ -1,8 +1,8 @@
 package com.example.billingservice.Service;
 
-import com.billingService.billingService.DTO.PaymentRequestDTO;
-import com.billingService.billingService.Entity.*;
-import com.billingService.billingService.Repository.*;
+import com.example.billingservice.DTO.PaymentRequestDTO;
+import com.example.billingservice.Entity.*;
+import com.example.billingservice.Repository.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
