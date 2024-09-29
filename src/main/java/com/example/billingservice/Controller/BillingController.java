@@ -63,12 +63,9 @@ public class BillingController {
 
     // Generate and email monthly statements
     @PostMapping("/email/statement")
-    public ResponseEntity<String> sendMonthlyStatement(@RequestParam String toEmail,
-                                                       @RequestParam String subject,
-                                                       @RequestParam String body,
-                                                       @RequestParam Long userId) {
+    public ResponseEntity<String> sendMonthlyStatement(@RequestParam Long userId) {
         try {
-            emailService.sendMonthlyStatement(toEmail, subject, body, userId);
+            emailService.sendMonthlyStatement(userId);
             return ResponseEntity.ok("Monthly statement sent successfully.");
         } catch (MessagingException | IOException e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
