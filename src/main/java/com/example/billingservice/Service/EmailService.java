@@ -15,7 +15,10 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class EmailService {
@@ -28,12 +31,19 @@ public class EmailService {
         this.paymentHistoryRepository = paymentHistoryRepository;
     }
 
-    public void sendMonthlyStatement(String toEmail, String subject, String body, Long userId) throws MessagingException, IOException, jakarta.mail.MessagingException {
+    public void sendMonthlyStatement(Long userId) throws MessagingException, IOException, jakarta.mail.MessagingException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 
-        helper.setTo(toEmail);
+        helper.setTo("suruthi0611@gmail.com");
+
+        LocalDate currentDate = LocalDate.now();
+
+        String monthName = currentDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+        String subject = "Monthly Statement of " + monthName;
         helper.setSubject(subject);
+
+        String body = "Monthly Statement of" + monthName;
         helper.setText(body, true);
 
         // Generate PDF statement
