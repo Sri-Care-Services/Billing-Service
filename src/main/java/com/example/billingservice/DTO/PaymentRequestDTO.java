@@ -18,7 +18,4 @@ public class PaymentRequestDTO {
 
     @NotNull(message = "Date cannot be null")
     private LocalDate date;
-
-    @NotNull(message = "Payment Date cannot be null")
-    private LocalDate paymentDate;
 }

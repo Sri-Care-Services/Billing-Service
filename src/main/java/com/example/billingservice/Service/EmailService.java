@@ -43,7 +43,7 @@ public class EmailService {
         String subject = "Monthly Statement of " + monthName;
         helper.setSubject(subject);
 
-        String body = "Monthly Statement of" + monthName;
+        String body = "Monthly Statement of " + monthName;
         helper.setText(body, true);
 
         // Generate PDF statement
