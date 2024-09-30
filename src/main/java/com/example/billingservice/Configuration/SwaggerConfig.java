@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "Billing Service API",
+                title = "Billing Service",
                 version = "1.0",
                 description = "API documentation for the Billing Service",
                 contact = @Contact(
