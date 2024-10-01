@@ -80,6 +80,9 @@ public class EmailService {
 
             for(Payment payment : paymentHistory) {
                 contentStream.setFont(PDType1Font.HELVETICA, 10);
+                contentStream.newLineAtOffset(0, -30);
+                contentStream.showText("Package: " + payment.getTitle());
+
                 contentStream.newLineAtOffset(0, -20);
                 contentStream.showText("Amount: " + payment.getAmount() + "                                                                                                                                       " + payment.getDate());
 //                contentStream.newLineAtOffset(0, -20);

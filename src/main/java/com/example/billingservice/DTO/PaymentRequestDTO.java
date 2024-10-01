@@ -13,6 +13,12 @@ public class PaymentRequestDTO {
     @NotNull(message = "User Id cannot be null")
     private Long userId;
 
+    @NotNull(message = "Title cannot be null")
+    private String title;
+
+    @NotNull(message = "Description cannot be null")
+    private String description;
+
     @NotNull(message = "Amount cannot be null")
     private BigDecimal amount;
 

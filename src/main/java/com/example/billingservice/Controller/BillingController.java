@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/billing")
 @Validated
+@CrossOrigin
 public class BillingController {
 
     @Autowired
@@ -62,8 +63,8 @@ public class BillingController {
     }
 
     // Generate and email monthly statements
-    @PostMapping("/email/statement")
-    public ResponseEntity<String> sendMonthlyStatement(@RequestParam Long userId) {
+    @PostMapping("/email/statement/{userId}")
+    public ResponseEntity<String> sendMonthlyStatement(@PathVariable Long userId) {
         try {
             emailService.sendMonthlyStatement(userId);
             return ResponseEntity.ok("Monthly statement sent successfully.");

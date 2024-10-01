@@ -28,6 +28,8 @@ public class BillingService {
         payment.setUserId(paymentRequest.getUserId());
         payment.setAmount(paymentRequest.getAmount());
         payment.setDate(paymentRequest.getDate());
+        payment.setTitle(paymentRequest.getTitle());
+        payment.setDescription(paymentRequest.getDescription());
         payment.setCreated_at(LocalDate.now());
 
         paymentHistoryRepository.save(payment);

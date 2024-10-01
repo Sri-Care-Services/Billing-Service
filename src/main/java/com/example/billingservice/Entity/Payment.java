@@ -19,6 +19,8 @@ public class Payment {
 
     private Long userId;
     private BigDecimal amount;
+    private String title;
+    private String description;
     private LocalDate date;
     private LocalDate created_at;
 }
