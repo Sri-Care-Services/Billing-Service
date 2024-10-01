@@ -35,7 +35,7 @@ public class EmailService {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 
-        helper.setTo("suruthi0611@gmail.com");
+        helper.setTo("kokularajh32@gmail.com");
 
         LocalDate currentDate = LocalDate.now();
 
